@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HierarchyProgram.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
@@ -23,6 +24,9 @@ namespace HierarchyProgram
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            //dependency injection
+            services.AddScoped<ISaatiService, SaatiService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
