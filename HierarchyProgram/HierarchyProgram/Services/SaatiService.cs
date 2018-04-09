@@ -7,6 +7,23 @@ namespace HierarhyTest.Services
 {
   public class SaatiService
   {
+    public const int MAX_ETALON_KEY = 13;
+    public static Dictionary<double, double> EtalonValues = new Dictionary<double, double>()
+    {
+      {3, 0.58 },
+      {4, 0.9 },
+      {5,1.12 },
+      { 6, 1.24},
+      { 7,1.32},
+      { 8,1.41},
+      { 9,1.45},
+      { 10,1.49},
+      { 11,1.51},
+      { 12,1.54},
+      { 13,1.56}
+    };
+
+
     public IList<double> GetLList(Matrix matrix)
     {
       List<double> L = new List<double>();
@@ -27,6 +44,7 @@ namespace HierarhyTest.Services
     public int DetermineTheBestAlternative(Matrix criterias, IList<Matrix> alternatives, int alternativesCount)
     {
       List<double> mainL = GetLList(criterias).Normalize().ToList();
+      var consistencyIndex = GetConsistencyIndex(criterias, mainL.AsEnumerable().Reverse());
 
       var dictionary = new Dictionary<int, List<double>>();
       for (int i = 0; i < alternativesCount; i++)
@@ -51,6 +69,20 @@ namespace HierarhyTest.Services
       }
 
       return sums.IndexOf(sums.Max());
+    }
+
+    public double GetConsistencyIndex(Matrix matrix, IEnumerable<double> vector)
+    {
+      int count = vector.Count();
+      if (count > MAX_ETALON_KEY)
+      {
+        throw new ArgumentException("Could not calculate consistency index");
+      }
+
+      var product = matrix.MultipleOnVector(vector.ToList());
+      double lambdaMax = product.Sum();
+      double index = (lambdaMax - count) / (count - 1);
+      return index / EtalonValues[count];
     }
   }
 }
