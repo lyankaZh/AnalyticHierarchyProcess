@@ -1,4 +1,6 @@
-﻿.comparison-block{
+﻿@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+.comparison-block{
     display: flex;
 }
 

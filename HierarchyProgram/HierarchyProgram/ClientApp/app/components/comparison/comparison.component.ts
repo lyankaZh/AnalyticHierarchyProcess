@@ -68,4 +68,8 @@ export class ComparisonComponent implements OnInit {
     isPreviousButtonDisabled(): boolean {
         return this.firstSelectedCriteria === 0 && this.secondSelectedCriteria === 1;
     }
+
+    getScaleText(): void {
+
+    }
 }

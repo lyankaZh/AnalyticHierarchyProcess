@@ -1,4 +1,5 @@
-﻿<h1>This is comparison component</h1>
+﻿
+<h1>This is comparison component</h1>
 
 
 <div class="comparison-block">
@@ -10,27 +11,20 @@
     </div>
 </div>
 
-
-
 <div class="navigate-butons">
     <button type="button" class="btn btn-info" (click)="navigatePrevious()" [disabled]="isPreviousButtonDisabled()"> Previous </button>
     <button type="button" class="btn btn-info btn-right" (click)="navigateNext()" [disabled]="isNextButtonDisabled()"> Next </button>
 </div>
 
-<!--<mat-card class="result">
-    <mat-card-content>
-        <h2 class="example-h2">Select values</h2>
 
-        <mat-slider class="example-margin"
-                    [max]="totalCountOfCriterias"
-                    [min]="0"
-                    [step]="1"
-                    [thumb-label]="true"
-                    [(ngModel)]="value">
-        </mat-slider>
-    </mat-card-content>
-</mat-card>-->
+<h2>Please evaluate your criterias</h2>
 
-<div>
-    <button type="button" class="btn btn-info" [disabled]="isCompleteButtonDisabled"> Complete </button>
-</div>
+<mat-slider class="example-margin"
+            [max]="9"
+            [min]="0"
+            [step]="1"
+            [thumb-label]="true"
+            [(ngModel)]="value">
+</mat-slider>
+<span>getScaleText()</span>
+
