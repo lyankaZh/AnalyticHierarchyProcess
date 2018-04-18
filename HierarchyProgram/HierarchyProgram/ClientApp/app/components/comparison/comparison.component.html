@@ -1,36 +1,40 @@
-﻿<h1>This is comparison component</h1>
+﻿<div class="comprasion-wrapper">
+    <h1 class="comparing-txt"><span>Here is only one step!</span><br /> Please, compare your reasons to go or not to go on lecture:</h1>
 
 
-<div class="comparison-block">
-    <div class="left criteria">
-        {{comparisonElements[firstSelectedCriteria].name}}
+    <div class="comparison-block">
+        <div class="left criteria">
+            {{comparisonElements[firstSelectedCriteria].name}}
+            <!--<img src="../app/img/Hamlet.png" alt="#" />-->
+        </div>
+        <div class="right criteria">
+            {{comparisonElements[secondSelectedCriteria].name}}
+            <!--<img src="../app/img/Hamlet.png" alt="#" />-->
+        </div>
     </div>
-    <div class="right criteria">
-        {{comparisonElements[secondSelectedCriteria].name}}
+
+
+
+    <div class="navigate-butons">
+        <button type="button" class="btn btn-info btn-left" (click)="navigatePrevious()" [disabled]="isPreviousButtonDisabled()"> Previous </button>
+        <button type="button" class="btn btn-info btn-right" (click)="navigateNext()" [disabled]="isNextButtonDisabled()"> Next </button>
     </div>
-</div>
 
+    <!--<mat-card class="result">
+        <mat-card-content>
+            <h2 class="example-h2">Select values</h2>
 
-
-<div class="navigate-butons">
-    <button type="button" class="btn btn-info" (click)="navigatePrevious()" [disabled]="isPreviousButtonDisabled()"> Previous </button>
-    <button type="button" class="btn btn-info btn-right" (click)="navigateNext()" [disabled]="isNextButtonDisabled()"> Next </button>
-</div>
-
-<!--<mat-card class="result">
-    <mat-card-content>
-        <h2 class="example-h2">Select values</h2>
-
-        <mat-slider class="example-margin"
-                    [max]="totalCountOfCriterias"
-                    [min]="0"
-                    [step]="1"
-                    [thumb-label]="true"
-                    [(ngModel)]="value">
-        </mat-slider>
-    </mat-card-content>
-</mat-card>-->
-
-<div>
-    <button type="button" class="btn btn-info" [disabled]="isCompleteButtonDisabled"> Complete </button>
+            <mat-slider class="example-margin"
+                        [max]="totalCountOfCriterias"
+                        [min]="0"
+                        [step]="1"
+                        [thumb-label]="true"
+                        [(ngModel)]="value">
+            </mat-slider>
+        </mat-card-content>
+    </mat-card>-->
+    <h1><span>So, to be or not to be?<br /></span>Are you ready to find out an answer?</h1>
+    <div class="result-button">
+        <button type="button" class="btn btn-info btn-res" [disabled]="isCompleteButtonDisabled"> Result </button>
+    </div>
 </div>
